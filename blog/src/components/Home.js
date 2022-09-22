@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Container from "react-bootstrap/Container"
-
+import Articles from './Articles'
 
 function Home ()
 {
@@ -8,15 +8,22 @@ function Home ()
     
     useEffect( () =>
     {
-        fetch("http://localhost:9292/articles")
-          .then((response) => response.json())
-            // .then( ( data ) => console.log( data ) );
-        .then((data) => setArticles(data))
+        fetch( "http://localhost:9292/articles" )
+            .then( ( response ) => response.json() )
+            .then( ( data ) =>
+            {
+                console.log( data );
+                setArticles( data );
+            } );
     }, [])
 
     return (
-       <Container></Container>
-    )
+      <Container>
+        {articles.map((article) => (
+          <Articles key={article.id} article={article} />
+        ))}
+      </Container>
+    );
 }
 
 export default Home;
