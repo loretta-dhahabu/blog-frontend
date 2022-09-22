@@ -10,8 +10,8 @@ function Header () {
           <Navbar.Brand href="#home">Blog</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#about">About</Nav.Link>
-            <Nav.Link href="#signin">SignIn</Nav.Link>
+            <Nav.Link href="#about">About Us</Nav.Link>
+            <Nav.Link href="#contact">Contact Us</Nav.Link>
           </Nav>
         </Container>
         <Nav>
