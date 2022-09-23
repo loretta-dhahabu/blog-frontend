@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Articles from "./Articles";
-import Header from "./Header";
+import Headline from "./Headline";
 function Home() {
   const [articles, setArticles] = useState([]);
   useEffect(() => {
@@ -15,7 +15,7 @@ function Home() {
 
   return (
     <Container>
-      <Header />
+      <Headline />
       <Articles articles={articles} />
     </Container>
   );
