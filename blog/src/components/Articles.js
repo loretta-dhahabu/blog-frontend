@@ -7,7 +7,7 @@ function Articles({ articles }) {
     <Container>
       {/* get the rest of the articles from the array  */}
       <Row xs={4} md={3} className="g-8">
-        {articles.slice(1, 10).map((article) => (
+        {articles.slice(0, 5).map((article) => (
           <Col key={article.id}>
             <Article article={article} key={article.id} />
           </Col>
