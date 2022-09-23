@@ -1,29 +1,24 @@
-import React, { useEffect, useState } from 'react'
-import Container from "react-bootstrap/Container"
-import Articles from './Articles'
+import { useEffect, useState } from "react";
+import Container from "react-bootstrap/Container";
+import Articles from "./Articles";
+import Header from "./Header";
+function Home() {
+  const [articles, setArticles] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:9292/articles")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setArticles(data);
+      });
+  }, []);
 
-function Home ()
-{
-    const [ articles, setArticles ] = useState( [] )
-    
-    useEffect( () =>
-    {
-        fetch( "http://localhost:9292/articles" )
-            .then( ( response ) => response.json() )
-            .then( ( data ) =>
-            {
-                console.log( data );
-                setArticles( data );
-            } );
-    }, [])
-
-    return (
-      <Container>
-        {articles.map((article) => (
-          <Articles key={article.id} article={article} />
-        ))}
-      </Container>
-    );
+  return (
+    <Container>
+      <Header />
+      <Articles articles={articles} />
+    </Container>
+  );
 }
 
 export default Home;
